@@ -23,7 +23,8 @@ const Login = ({ onLogin }) => {
 
     try {
       const endpoint = isSignup ? '/api/signup' : '/api/login';
-      const response = await axios.post(`http://localhost:5000${endpoint}`, formData);
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}${endpoint}`, formData);
+
       
       if (response.data.success) {
         onLogin(response.data.intern);

@@ -13,7 +13,7 @@ const Dashboard = ({ internData, onLogout }) => {
 
   const fetchLeaderboard = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/leaderboard');
+      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/leaderboard`);
       setLeaderboard(response.data);
     } catch (error) {
       console.error('Error fetching leaderboard:', error);
